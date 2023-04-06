@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HHO5RTm9VlLmLblD+Z1ed94EIj0O7gylF0hJ+U0mebkDhH5CI3T+zrn2449gahDw8B4Bw6h4ynSGhj0EkTqR3A==",
+  "dgSpecHash": "T/8R9LKxjDgfOLr+9FnzQQtWNkI45dZhMXW10u7DOj5TdxSzlvZPMXOlpQipswL2Dj889xXe7+mQ9QO1VA7mvQ==",
   "success": true,
   "projectFilePath": "/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/__BlueBadge/ElevenNoteAPI/ElevenNote.WebAPI/ElevenNote.WebAPI.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,7 @@
     "/Users/1150Coding/.nuget/packages/microsoft.entityframeworkcore.design/7.0.4/microsoft.entityframeworkcore.design.7.0.4.nupkg.sha512",
     "/Users/1150Coding/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.4/microsoft.entityframeworkcore.relational.7.0.4.nupkg.sha512",
     "/Users/1150Coding/.nuget/packages/microsoft.entityframeworkcore.sqlserver/7.0.4/microsoft.entityframeworkcore.sqlserver.7.0.4.nupkg.sha512",
+    "/Users/1150Coding/.nuget/packages/microsoft.entityframeworkcore.tools/7.0.4/microsoft.entityframeworkcore.tools.7.0.4.nupkg.sha512",
     "/Users/1150Coding/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/1150Coding/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/1150Coding/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
