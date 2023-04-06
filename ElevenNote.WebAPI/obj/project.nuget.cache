@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "yncR5ogc2E9LEj8g3HAqQ4KYGm7HTM055wpHe8pVukUdJUD5+fSxeVDxq3b/9c7b9ISKCF5kYvrsydtF3QlatA==",
+  "success": true,
+  "projectFilePath": "/Users/1150Coding/Desktop/ElevenFiftyProjects/codingFoundations/__BlueBadge/ElevenNoteAPI/ElevenNote.WebAPI/ElevenNote.WebAPI.csproj",
+  "expectedPackageFiles": [
+    "/Users/1150Coding/.nuget/packages/microsoft.aspnetcore.openapi/7.0.4/microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
+    "/Users/1150Coding/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/1150Coding/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/1150Coding/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/1150Coding/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/1150Coding/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/1150Coding/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
