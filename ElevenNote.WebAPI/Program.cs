@@ -6,6 +6,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<ElevenNoteDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ElevenNoteAPIDb")));// 
 
 var app = builder.Build();
 
@@ -23,3 +24,13 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public void ConfigurationServices(IServiceCollection services)
+    {
+        services.AddControllers();
+        services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ElevenNoteWebAPI", Version = "v1" });
+        });
+    }
+
