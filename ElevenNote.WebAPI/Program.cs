@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using ElevenNote.Services.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,4 +37,4 @@ app.Run();
 //     }
 
 //Add User Service/Interface for Dependency Injection here
-builder.Services.AddScoped<IUserService, UserService>();
+// builder.Services.AddScoped<IUserService, UserService>();
