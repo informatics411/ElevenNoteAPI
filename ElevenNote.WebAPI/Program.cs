@@ -9,7 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ElevenNoteDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ElevenNoteAPIDb"))); 
-
+//Add User Service/Interface for Dependency Injection here
+builder.Services.AddScoped<IUserService, UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,5 +37,3 @@ app.Run();
 //         });
 //     }
 
-//Add User Service/Interface for Dependency Injection here
-// builder.Services.AddScoped<IUserService, UserService>();
