@@ -49,11 +49,16 @@ public class UserService : IUserService
         {
             Id = entity.Id,
             Email = entity.Email,
-            Username = entity.UserName,
+            Username = entity.Username,
             FirstName = entity.FirstName,
             LastName = entity.LastName,
             DateCreated = entity.DateCreated
         };
         return userDetail;
+    }
+
+    Task<UserDetail> IUserService.GetUserByIdAsync(int userID)
+    {
+        throw new NotImplementedException();
     }
 }
