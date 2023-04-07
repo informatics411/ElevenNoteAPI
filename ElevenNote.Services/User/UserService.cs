@@ -15,7 +15,7 @@ public class UserService : IUserService
     public async Task<bool> RegisterUserAsync(UserRegister model)
     {
         if (await GetUserByEmailAsync(model.Email) != null || await GetUserByUsernameAsync(model.Username) != null)
-        return false;
+            return false;
         var entity = new UserEntity
         {
             Email = model.Email,
@@ -29,7 +29,7 @@ public class UserService : IUserService
         var numberOfChanges = await _context.SaveChangesAsync();
         return numberOfChanges == 1;
     }
-    
+
     private async Task<UserEntity> GetUserByEmailAsync(string email)
     {
         return await _context.Users.FirstOrDefaultAsync(user => user.Email.ToLower() == email.ToLower());
@@ -37,5 +37,23 @@ public class UserService : IUserService
     private async Task<UserEntity> GetUserByUsernameAsync(string username)
     {
         return await _context.Users.FirstOrDefaultAsync(user => user.Username.ToLower() == username.ToLower());
+    }
+
+    private async Task<UserDetail> GetUserByIdAsync(int userId)
+    {
+        var entity = await _context.Users.FindAsync(userId);
+        if (entity is null)
+            return null;
+
+        var userDetail = new UserDetail
+        {
+            Id = entity.Id,
+            Email = entity.Email,
+            Username = entity.UserName,
+            FirstName = entity.FirstName,
+            LastName = entity.LastName,
+            DateCreated = entity.DateCreated
+        };
+        return userDetail;
     }
 }
