@@ -8,6 +8,11 @@ public class UserRegister
      [Required]
      [MinLength(4)]
     public string Username { get; set; }
+
+    [Required]
+    public string FirstName { get; set; }
+    [Required]
+    public string LastName { get; set; }
     [Required]
     [MinLength(4)]
     public string Password { get; set; }

@@ -20,6 +20,8 @@ public class UserService : IUserService
         {
             Email = model.Email,
             Username = model.Username,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
             DateCreated = DateTime.Now
         };
         var passwordHasher = new PasswordHasher<UserEntity>();

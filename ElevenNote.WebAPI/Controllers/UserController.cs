@@ -16,7 +16,7 @@ public class UserController : ControllerBase
         _service = service;
     }
 
-    [HttpPost("Register")]
+[HttpPost("Register")]
     public async Task<IActionResult> RegisterUser([FromBody] UserRegister model)
     {
         if (!ModelState.IsValid)

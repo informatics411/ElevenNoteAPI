@@ -18,20 +18,21 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development", 
+                "ASPNETCORE_URLS":"https://localhost:5171"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
-            }
-        },
-        "launchBrowser":{
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "enabled": true
-        },
-        "logging"{
-            "moduleload": false
+            },
+            "launchBrowser": {
+                "name": ".NET Core Attach",
+                "type": "coreclr",
+                "request": "attach",
+                "enabled": true
+            },
+            "logging": {
+                "moduleload": false
+            },
         },
         {
             "name": ".NET Core Attach",
