@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ElevenNote.Services;
+using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -30,7 +31,7 @@ public class UserController : ControllerBase
         }
         return BadRequest("User could not be registered.");
     }
-
+[Authorize]
 [HttpGet("{userId:int}")]
     public async Task<IActionResult> GetById([FromRoute] int userId)
     {
