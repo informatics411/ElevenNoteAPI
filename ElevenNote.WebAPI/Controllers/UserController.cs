@@ -11,35 +11,62 @@ using Microsoft.AspNetCore.Authorization;
 [ApiController]
 public class UserController : ControllerBase
 {
-    private readonly IUserService _service;
-    public UserController(IUserService service)
+    private readonly IUserService _userService;
+    private readonly ITokenService _tokenService;
+
+    public UserController(IUserService userService, ITokenService tokenService)
     {
-        _service = service;
+        _userService = userService;
+        _tokenService = tokenService;
     }
 
-[HttpPost("Register")]
+
+    [HttpPost("Register")]
     public async Task<IActionResult> RegisterUser([FromBody] UserRegister model)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
-        var registerResult = await _service.RegisterUserAsync(model);
+        var registerResult = await _userService.RegisterUserAsync(model);
         if (registerResult)
         {
             return Ok("User was registered.");
         }
         return BadRequest("User could not be registered.");
     }
-[Authorize]
-[HttpGet("{userId:int}")]
+
+    [Authorize]
+    [HttpGet("{userId:int}")]
     public async Task<IActionResult> GetById([FromRoute] int userId)
     {
-        var userDetail = await _service.GetUserByIdAsync(userId);
+        var userDetail = await _userService.GetUserByIdAsync(userId);
         if (userDetail is null)
         {
             return NotFound();
         }
         return Ok(userDetail);
+    }
+
+    IActionResult NotFound()
+    {
+        throw new NotImplementedException();
+    }
+
+    IActionResult Ok(object userDetail)
+    {
+        throw new NotImplementedException();
+    }
+
+    [HttpPost("~/api/Token")]
+    public async Task<IActionResult> Token([FromBody] TokenRequest request)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var tokenResponse = await _tokenService.GetTokenAsync(request);
+        if (tokenResponse is null)
+            return BadRequest("Invalid username or password.");
+        return Ok(tokenResponse);
     }
 }
