@@ -3867,6 +3867,7 @@
           "ElevenNote.Data": "1.0.0",
           "ElevenNote.Models": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4",
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "Microsoft.Extensions.Identity.Core": "7.0.4"
         },
         "compile": {

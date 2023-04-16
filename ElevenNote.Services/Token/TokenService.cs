@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 public class TokenService : ITokenService
 {
@@ -81,7 +82,13 @@ public class TokenService : ITokenService
         var tokenHandler = new JwtSecurityTokenHandler();
         var token = tokenHandler.CreateToken(tokenDescriptor);
 
-        var tokenResponse = new TokenResponse;
+        var tokenResponse = new TokenResponse
+        {
+            Token = tokenHandler.WriteToken(token),
+            IssuedAt = token.ValidFrom,
+            Expires = token.ValidFrom
+        };
+        return tokenResponse;
      }
 }
 

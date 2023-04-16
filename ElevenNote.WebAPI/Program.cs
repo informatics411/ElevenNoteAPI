@@ -6,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 internal class Program
 {
     private static object services;
-https://teams.live.com/meet/9365310415386
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
