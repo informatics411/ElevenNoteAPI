@@ -74,8 +74,8 @@ public void ConfigurationServices(IServiceCollection services)
                     {
                         Reference = new OpenApiReference
                         {
-                            Type = BearerType.SecurityScheme,
-                            IdentityServiceCollectionExtensions = "Bearer"
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
                         }
                     },
                     new string [] {}
@@ -85,5 +85,3 @@ public void ConfigurationServices(IServiceCollection services)
         });
     }
 }
-
-
