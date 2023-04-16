@@ -14,6 +14,7 @@ public class TokenService : ITokenService
 
     private UserEntity userEntity;
     private int user;
+    private IConfiguration? configuration;
     private readonly ElevenNoteDbContext _context;
     private readonly IConfiguration _configuration;
 
