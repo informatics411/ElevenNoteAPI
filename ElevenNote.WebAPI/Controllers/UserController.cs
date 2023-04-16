@@ -48,16 +48,6 @@ public class UserController : ControllerBase
         return Ok(userDetail);
     }
 
-    IActionResult NotFound()
-    {
-        throw new NotImplementedException();
-    }
-
-    IActionResult Ok(object userDetail)
-    {
-        throw new NotImplementedException();
-    }
-
     [HttpPost("~/api/Token")]
     public async Task<IActionResult> Token([FromBody] TokenRequest request)
     {

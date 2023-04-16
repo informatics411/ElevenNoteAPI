@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 internal class Program
 {
@@ -19,11 +20,9 @@ internal class Program
         builder.Services.AddDbContext<ElevenNoteDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ElevenNoteAPIDb")));
         //Add User Service/Interface for Dependency Injection here
         // builder.Services.AddScoped<IUserService, UserService>();
-
-
-        var app = builder.Build();
         builder.Services.AddScoped<IUserService, UserService>();
         builder.Services.AddScoped<ITokenService, TokenService>();
+        var app = builder.Build();
         var authenticationBuilder = builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {
             options.RequireHttpsMetadata = false;
@@ -53,14 +52,38 @@ internal class Program
 
         app.Run();
     }
+public void ConfigurationServices(IServiceCollection services)
+    {
+        services.AddControllers();
+        services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ElevenNoteWebAPI", Version = "v1" });
+            c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+            {
+                Name = "Authorization",
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer",
+                BearerFormat = "JWT",
+                In = ParameterLocation.Header,
+                Description = "JWT Authorization header using the Bearer scheme. \n\n Enter 'Bearer' [space] and then your token in the text input below. /n/nExample: \"Bearer 12345abcdef\""
+            });
+            c.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                { 
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = BearerType.SecurityScheme,
+                            IdentityServiceCollectionExtensions = "Bearer"
+                        }
+                    },
+                    new string [] {}
+                }   
+            });
+            
+        });
+    }
 }
 
-// public void ConfigurationServices(IServiceCollection services)
-//     {
-//         services.AddControllers();
-//         services.AddSwaggerGen(c =>
-//         {
-//             c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "ElevenNoteWebAPI", Version = "v1" });
-//         });
-//     }
 
