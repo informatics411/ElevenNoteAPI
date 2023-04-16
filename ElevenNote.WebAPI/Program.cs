@@ -1,14 +1,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using ElevenNote.Services.Token;
 
 internal class Program
 {
     private static object services;
-
+https://teams.live.com/meet/9365310415386
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
@@ -25,8 +23,8 @@ internal class Program
 
 
         var app = builder.Build();
-        builder.Services.AddScoped<ITokenService, TokenService();
         builder.Services.AddScoped<IUserService, UserService>();
+        builder.Services.AddScoped<ITokenService, TokenService>();
         var authenticationBuilder = builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {
             options.RequireHttpsMetadata = false;
