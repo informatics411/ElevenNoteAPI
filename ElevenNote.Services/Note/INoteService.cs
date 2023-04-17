@@ -8,4 +8,6 @@ using System.Threading.Tasks;
         Task<IEnumerable<NoteListItem>> GetAllNotesAsync();
         Task<NoteDetail> GetNoteByIdAsync(int noteID);
         Task<bool> UpdateNoteAsync(NoteUpdate request);
+
+        Task<bool> DeleteNoteAsync(int NoteId);
     }

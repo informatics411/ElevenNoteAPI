@@ -63,5 +63,14 @@ public async Task<IActionResult> UpdateNoteById([FromBody] NoteUpdate request)
             ? Ok("Note updated successfullly.")
             : BadRequest("Note could not be updated.");
 }
+
+//Delete api/Note/5
+[HttpDelete("{noteId:int}")]
+public async Task<IActionResult> DeleteNote([FromRoute] int noteId)
+{
+    return await _noteService.DeleteNoteAsync(noteId)
+        ? Ok($"Note {noteId} was deleted successfully.")
+        : BadRequest($"Note {noteId} could note be deleted.");
+}
 }
 

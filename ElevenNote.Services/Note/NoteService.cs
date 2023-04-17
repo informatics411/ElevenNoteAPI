@@ -87,4 +87,17 @@ public interface NoteService: INoteService
             //numberofChnges is stated to be equal to 1 becausae only one row is updated
             return numberOfChanges == 1;
         }
+
+        public async Task<bool> DeleteNoteAsync(int noteId)
+        {
+            //Find the note by the given Id
+            var noteEntity = await _dbContext.Notes.FindAsync(noteId);
+            //Validate the note exists and is owned by the user
+            if (noteEntity?.OwnerId != _userId)
+                return false;
+            //Remove the note from the DbContext and asasert that the one change was saved
+            _dbContext.Notes.Remove(noteEntity);
+            return await _dbContext.SaveChangesAsync() == 1;
+             
+        }
     }
