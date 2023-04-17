@@ -4,5 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
     public interface INoteService
     {
+        Task<bool> CreateNoteAsync(NoteCreate request);
         Task<IEnumerable<NoteListItem>> GetAllNotesAsync();
     }

@@ -33,4 +33,18 @@ using Microsoft.AspNetCore.Http;
             .ToListAsync();
             return notes;
         }
+
+        public async Task<bool> CreateNoteAsync(NoteCreate request)
+        {
+            var noteEntity = new NoteEntity
+            {
+                Title = request.Title,
+                Content = request.Content,
+                CreatedUTC = DateTimeOffset.Now,
+                OwnerId = _userId
+            };
+            _dbContext.Notes.Add(noteEntity);
+            var numberOfChanges = await _dbContext.SaveChangesAsync();
+            return numberOfChanges == 1;
+        }
     }
