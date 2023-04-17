@@ -38,5 +38,19 @@ public async Task<IActionResult> CreateNote([FromBody] NoteCreate request)
     return BadRequest("Note could not be created.")
 }
 
+//GET api/Note/5
+[HttpGet("{noteId:int}")]
+public async Task<IActionResult> GetNoteById([FromRoute] int noteId)
+{
+    var detail = await _noteService.GetNoteByIdAsync(noteId);
+
+    ///Similar to our service method, we're using a ternary to determine our return type
+    //If the reutrned value (detail) is not null, return it with a 200 OK
+    //Otherwise return a NotFound() 404 Respone
+    return detail is not null
+        ? Ok(detail)
+        : NotFound();
+}
+
 }
 
