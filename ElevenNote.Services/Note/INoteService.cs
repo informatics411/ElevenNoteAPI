@@ -7,4 +7,5 @@ using System.Threading.Tasks;
         Task<bool> CreateNoteAsync(NoteCreate request);
         Task<IEnumerable<NoteListItem>> GetAllNotesAsync();
         Task<NoteDetail> GetNoteByIdAsync(int noteID);
+        Task<bool> UpdateNoteAsync(NoteUpdate request);
     }
